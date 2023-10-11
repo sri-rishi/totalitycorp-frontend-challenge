@@ -1,10 +1,10 @@
-import {Image} from "../index"
+import {AiFillStar} from "../../assets/icons";
 
 const Ratings = ({rating}) => {
     return (
-        <p>
+        <p className="flex flex-row items-center gap-1 px-2 py-1 rounded-lg bg-cyan-200 text-gray-700">
             <span>{rating && rating}</span>
-            <Image src="https://img.icons8.com/color/48/000000/filled-star--v1.png" alt="ratings" />
+            <AiFillStar className="text-yellow-400 text-lg"/>
         </p>
     )
 }
