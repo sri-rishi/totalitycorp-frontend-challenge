@@ -1,10 +1,13 @@
 import {Button} from "../index";
 const Sidebar = () => {
     return (
-        <aside className="max-w-xs w-2/6 shadow-lg flex flex-col justify-center gap-4 p-4 pt-8 text-gray-700 sticky">
+        <aside className="max-w-xs min-w-[18rem] w-2/6 h-full shadow-xl flex flex-col gap-4 px-4 pt-8 pb-20 text-gray-700 fixed overflow-scroll sidebar">
             <div className="p-1 flex justify-between border-b-2 border-slate-400">
                 <p className="font-medium text-2xl">Filters</p>
-                <Button className={"text-gray hover:bg-gray-500 hover:text-white rounded-md p-1"} text={"Clear All"}/>
+                <Button 
+                    className={"text-gray hover:bg-gray-500 hover:text-white rounded-md p-1"} 
+                    text={"Clear All"}
+                />
             </div>
             <div className="p-2 pb-6 flex flex-col justify-center gap-2 border-b-2 border-slate-400">
                 <p className="font-medium">Price Range</p>

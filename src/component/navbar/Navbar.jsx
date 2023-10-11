@@ -2,7 +2,7 @@ import { FaShoppingCart , BiSolidUserCircle} from "../../assets/icons";
 
 const Navbar = () => {
     return (
-        <div className="w-screen flex items-center justify-between text-2xl py-4 px-8 shadow-lg bg-white">
+        <div className="w-full flex items-center z-50 justify-between text-2xl py-4 px-8 shadow-lg bg-white fixed">
             <div>
                 <h1>Title</h1>
             </div>

@@ -4,7 +4,7 @@ import { ShoppingPage } from './pages';
 
 const App = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <Navbar />
       <ShoppingPage />
     </div>
