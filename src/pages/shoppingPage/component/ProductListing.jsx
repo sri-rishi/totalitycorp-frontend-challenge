@@ -2,7 +2,7 @@ import { ProductCard } from "../../../component"
 
 const ProductListing = () => {
     return (
-        <div className="ml-72 flex flex-row justify-evenly gap-4 p-8 flex-wrap">
+        <div className="m-0 sm:ml-72 flex flex-row justify-evenly gap-4 p-8 flex-wrap">
             <ProductCard />
             <ProductCard />
             <ProductCard />
