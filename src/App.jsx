@@ -1,14 +1,12 @@
-import './App.css';
-import Navbar from './component/navbar/Navbar';
-import { ShoppingPage } from './pages';
+import './App.css'
+import AllRoutes from './routes/AllRoutes';
 
 const App = () => {
 
 
   return (
-    <div className="flex flex-col gap-4">
-      <Navbar />
-      <ShoppingPage />
+    <div >
+      <AllRoutes />
     </div>
   );
 }
