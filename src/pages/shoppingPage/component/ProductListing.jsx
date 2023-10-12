@@ -8,6 +8,7 @@ import {
     getFilteredByRatingsData,
     getSortedProductList
 } from "../../../helper/filterProduct.helper";
+import productData from "../../../db/db";
 
 const ProductListing = () => {
     const {products} = useSelector(store => store?.products);
@@ -20,7 +21,7 @@ const ProductListing = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const filterByRange = getFilterByPriceRangeData(products, priceRange);
+        const filterByRange = getFilterByPriceRangeData(productData, priceRange);
         const sortedData = getSortedProductList(filterByRange, sortBy);
         const filterByCategory = getFilteredByCategoriesData(sortedData, selectedCategories);
         const filterByRatings = getFilteredByRatingsData(filterByCategory, ratingValue);

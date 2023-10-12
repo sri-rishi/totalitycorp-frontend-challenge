@@ -1,5 +1,5 @@
 const getFilterByPriceRangeData = (productList, priceRange) => {
-    return productList.filter(product => product.price < priceRange);
+    return [...productList].filter(product => product.price < priceRange);
 }
 
 const getFilteredByRatingsData = (productList, rating) => productList.filter(product => product.rating >= rating);
@@ -20,7 +20,7 @@ const getSortedProductList = (productList, sortBy) => {
 
 const getFilteredByCategoriesData = (productList, selectedCategories) => {
     if (selectedCategories.length > 0) {
-        return productList.filter(product => selectedCategories.includes(product.category));
+        return [...productList].filter(product => selectedCategories.includes(product.category));
     }
     return productList;
 }
