@@ -6,6 +6,7 @@ import Ratings from "./ratings/Ratings";
 import ProductCard from "./productCard/ProductCard";
 import CartItemCard from "./cartItemCard/CartItemCard";
 import ConfirmOrderModal from "./confirmModal/ConfirmOrderModal";
+import EmptyCart from "./emptyCart/EmptyCart";
 
 export {
     Image,
@@ -15,5 +16,6 @@ export {
     Ratings,
     ProductCard,
     CartItemCard,
-    ConfirmOrderModal
+    ConfirmOrderModal,
+    EmptyCart
 }
