@@ -1,6 +1,6 @@
-# Totalicorp Frontend Challenge (E-commerce) using React + Tailwind CSS + Redux Tooljit
+# Totalitycorp Frontend Challenge (E-commerce) using React + Tailwind CSS + Redux Toolkit
 
-Live Link- [Totalicorp-frontend-Challenge]([https://socioflasher.netlify.app/login](https://totalitycorp-frontend-challenge-1.netlify.app/))
+Live Link- [Totalitycorp-frontend-Challenge]([https://socioflasher.netlify.app/login](https://totalitycorp-frontend-challenge-1.netlify.app/))
 
 ## Technologies used
 1. React
