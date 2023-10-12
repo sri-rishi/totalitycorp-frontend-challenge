@@ -1,14 +1,39 @@
 import { useState } from "react";
 import {Button} from "../index";
 import {LiaTimesCircleSolid} from "../../assets/icons"; 
+import { useDispatch, useSelector } from "react-redux";
+import { 
+    setSortBy, 
+    setPriceRange, 
+    setRatingValue,
+    addSelectedCategory,
+    removeSelectedCategory ,
+} from "../../component/sidebar/productFilterSlice";
 
 
 const Sidebar = () => {
+    const {categoryData} = useSelector(store => store?.products) 
+    const {
+         
+        sortBy,
+        priceRange,
+        selectedCategories,
+        ratingValue
+    } = useSelector(store => store?.productFilter);
     const [showFilter, setShowFilter] = useState(false);
+    const dispatch = useDispatch();
 
     const handleFilterView = () => {
         setShowFilter(showFilter => !showFilter);
     }
+
+    const handleCategoryChange = (category) => {
+        if (selectedCategories.includes(category)) {
+          dispatch(removeSelectedCategory(category));
+        } else {
+          dispatch(addSelectedCategory(category));
+        }
+    };
 
     return (
         <div>
@@ -45,23 +70,30 @@ const Sidebar = () => {
                             className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                             id="priceRange"
                             type="range" 
-                            min="4000" 
-                            max="350000" 
+                            min="0" 
+                            max="999" 
+                            value={priceRange} 
+                            onChange={(e) => dispatch(setPriceRange(e.target.value))}
                         />
-                        <span className=" w-20 flex items-center justify-center self-end shadow-md p-2 font-medium text-cyan-400">4000</span>
+                        <span className=" w-20 flex items-center justify-center self-end shadow-md p-2 font-medium text-cyan-400">
+                            {priceRange}
+                        </span>
                     </div>
                 </div>
                 <div className="p-2 pb-6 flex flex-col justify-center gap-2 border-b-2 border-slate-400">
                     <p className="font-medium">Sort by Price</p>
                     <ul className="flex flex-col gap-2">
                     {
-                            ["Low to High", "High to Low"].map((value, i) => (
+                            ["Low-to-High", "High-to-Low"].map((value, i) => (
                                 <li key={i} className="flex flex-row items-center gap-2">
                                     <input
                                         type="radio" 
                                         id={value}
                                         name="sort" 
                                         aria-label={value} 
+                                        onChange={() => dispatch(setSortBy(value))} 
+                                        checked={sortBy && sortBy === value}
+
                                     />
                                     <label className="mb-1" htmlFor={value}>{value}</label>
                                 </li>
@@ -73,13 +105,15 @@ const Sidebar = () => {
                     <p className="font-medium">Category</p>
                     <ul className="flex flex-col gap-2">
                         {
-                            ["category1","category2","category3", "category4"].map((category, i) => (
+                            categoryData.map((category, i) => (
                                 <li key={i} className="flex flex-row items-center gap-2">
                                     <input 
                                         id={category} 
                                         type="checkbox"
                                         name={category} 
                                         aria-label={category}
+                                        onChange={() => handleCategoryChange(category)}
+                                        checked={selectedCategories.includes(category)}
                                     />
                                     <label htmlFor={category} className="mb-1">
                                         {category}
@@ -99,10 +133,12 @@ const Sidebar = () => {
                                         id={rating} 
                                         type="radio" 
                                         name="rating" 
-                                        aria-label={rating} 
+                                        aria-label={rating}
+                                        onChange={() => dispatch(setRatingValue(rating))}
+                                        checked={ratingValue === rating} 
                                     />
                                     <label htmlFor={rating} className="mb-1">
-                                        {rating}
+                                        {`${rating} or more`}
                                     </label>
                                 </li>
                             ))
